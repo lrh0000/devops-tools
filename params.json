@@ -1,0 +1,27 @@
+{
+  "Region": "eu-west-1",
+  "RoleARN": "PUT_YOUR_ROLE_ARN_HERE",
+  "tables": {
+    "table1": {
+      "MinRead": 10,
+      "MaxRead": 20000,
+      "MinWrite": 5,
+      "MaxWrite": 20,
+      "Target": 70
+    },
+    "table2": {
+      "MinRead": 10,
+      "MaxRead": 40000,
+      "MinWrite": 5,
+      "MaxWrite": 100,
+      "Target": 70
+    },
+      "table3": {
+      "MinRead": 5,
+      "MaxRead": 100,
+      "MinWrite": 5,
+      "MaxWrite": 100,
+      "Target": 80
+    }
+  }
+}
