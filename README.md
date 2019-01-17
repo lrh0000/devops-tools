@@ -17,3 +17,24 @@ python autoscale.py <STACK_NAME>
 * Each table is represented with a JSON object, you can add more for each table and change the table names to match your tables.
 * The script will set up autoscaling policies for each table defined in the supplied json file.
 * Number of tables does not matter, you can place as many as you want. You can create different parameter files for different stacks and environments and run iterations through a bash script or integrate it into your CI/CD pipeline for restoring the autoscaling settings each time a new deployment is run on the DynamoDb stack.
+
+
+# restore-mappings.py
+
+This script recreates Dynamodb streams and Lambda function triggers for the Dynamodb tables after database restores. Particularly useful for automating disaster recovery and restore tests, it can be also useful for CI/CD if any major upgrades break Dynamodb streams and/or Lambda triggers, or adding new Lambda triggers and streams. It also cleans up any broken Lambda triggers left over from disaster recovery and major database upgrades.
+
+Script will check for existing and enabled streams and Lambda triggers and create them only if they are broken or non-existing.
+
+
+## Usage 
+
+python restore-mappings.py mappings.json
+
+* Edit mappings.json and list your tables, stream types and Lambda functions to create the triggers for the Dynamodb streams.
+
+## Use Cases
+
+* Restore broken Lambda triggers and streams for Dynamodb tables after disaster recovery and major upgrades
+* Automate adding new Lambda triggers for Dynamodb tables without involving Cloudformation templates, saving time
+* Add monitoring such as Datadog for the Dynamodb tables.
+* Clean up broken Dynamodb triggers 
