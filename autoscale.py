@@ -60,7 +60,7 @@ client = boto3.client('application-autoscaling')
 
 
 # Deregister any existing autoscaling targets first as a workaround to AWS Cloudformation API bug
-for key,i in zip(params["tables"].keys(), range(len(params["tables"]))):
+for key in params["tables"].keys():
     res = str("table/" + key)
     response = client.describe_scalable_targets(
         ServiceNamespace=service,
