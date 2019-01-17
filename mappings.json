@@ -1,0 +1,17 @@
+{
+  "region": "eu-west-1",
+  "tables":{
+    "table1": {
+      "Type": "NEW_IMAGE",
+      "Functions": ["DataDogLogCollector", "function1"]
+     },
+    "table2": {
+      "Type": "KEYS_ONLY",
+      "Functions": ["DataDogLogCollector", "function2"]
+     },
+    "table3": {
+      "Type": "KEYS_ONLY",
+      "Functions": ["DataDogLogCollector", "function3", "function4"]
+     }
+  }
+}
