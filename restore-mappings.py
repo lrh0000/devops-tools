@@ -54,7 +54,7 @@ if (m != 0):
                     print("------------------------------")
                     clientlm.delete_event_source_mapping( UUID=uuid )
                     
-# Enable the streams and ctreate event source mappings (Lambda triggers)
+# Enable the streams and create event source mappings (Lambda triggers)
 for key,value in params["tables"].items():
     ff = params["tables"][key]['Functions']
     print("=============================")
