@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Usage: python restore-trig.py triggers.json
+# Usage: python restore-mappings.py mappings.json
 # This script removes the broken Lambda triggers for the tables and functions specified in mappings.json 
 # and then enables Dynamodb streams with the specified type and creates the desired Lambda triggers.
 import boto3
