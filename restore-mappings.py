@@ -67,7 +67,7 @@ for key,value in params["tables"].items():
     )
     tarn = stream['Streams'][0]['StreamArn']
     stat = checkstream(tarn)
-    if (stat == 'DISABLED') or (stat == 'DISABLING'):
+    if (stat == 'DISABLED'):
         resp = clientdb.update_table(
             TableName=key,
             StreamSpecification={
