@@ -11,7 +11,7 @@
      },
     "table3": {
       "Type": "KEYS_ONLY",
-      "Functions": ["DataDogLogCollector", "function3", "function4"]
+      "Functions": ["function3"]
      }
   }
 }
