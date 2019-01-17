@@ -10,7 +10,7 @@ Requirements:
 
 ## Usage 
 
-python autoscale.py <FILENAME>
+python autoscale.py FILENAME
 
 * FILENAME is the json file where you list your tables and autoscaling parameters.
 * Use the sample **params.json** file for reference, enter the values for RoleARN and the desired autoscaling parameters for the tables. 
