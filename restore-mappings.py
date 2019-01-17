@@ -27,7 +27,7 @@ m = len(mappings['EventSourceMappings'])
 def checkstream(a):
     strchk = clientstream.describe_stream(
         StreamArn=a )
-    status = strchk['StreamDescription']['StreamArn']
+    status = strchk['StreamDescription']['StreamStatus']
     return status
 
 def checkmapping(b,c):
@@ -37,7 +37,7 @@ def checkmapping(b,c):
     status = len(mapchk['EventSourceMappings'])
     return status
 
-# Delete all the broken event source mappings
+# Delete all the broken event source mappings belonging to the tables listed in the json file
 if (m != 0):
     print("Cleaning up the broken Event Source mappings:")
     print(" ")
@@ -45,11 +45,15 @@ if (m != 0):
         uuid = mappings['EventSourceMappings'][i]['UUID']
         state =  mappings['EventSourceMappings'][i]['State']
         farn = mappings['EventSourceMappings'][i]['FunctionArn']
-        if (state == "Disabled"):
-            print("Deleting broken event source mapping uuid: {} state: {} ".format(uuid,state))
-            print("Function Arn = {}".format(farn))
-            clientlm.delete_event_source_mapping( UUID=uuid )
-
+        esarn = mappings['EventSourceMappings'][i]['EventSourceArn']
+        for key in params["tables"].keys():
+            if key in esarn:
+                if (state == "Disabled"):
+                    print("Deleting broken event source mapping uuid: {} state: {} ".format(uuid,state))
+                    print("Function Arn = {}".format(farn))
+                    print("------------------------------")
+                    clientlm.delete_event_source_mapping( UUID=uuid )
+                    
 # Enable the streams and ctreate event source mappings (Lambda triggers)
 for key,value in params["tables"].items():
     ff = params["tables"][key]['Functions']
