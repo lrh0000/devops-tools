@@ -5,8 +5,8 @@ Various AWS automation tools for DevOps use
 
 This script will set up autoscaling policies for existing, newly created or restored DynamoDB tables. 
 Requirements:
-* You need to have the tables under a Cloudformation stack 
-* and you will need the Arn of a role that has the permission to modify application  autoscaling. See the AWS documentation for the details: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
+
+* Arn of a role that has the permission to modify application  autoscaling. See the AWS documentation for the details: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
 
 ## Usage 
 
