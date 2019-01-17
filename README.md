@@ -10,13 +10,12 @@ Requirements:
 
 ## Usage 
 
-python autoscale.py <STACK_NAME>
+python autoscale.py <FILENAME>
 
-* STACK_NAME is the Cloudformation stack your dynamodb tables are under.
-* Edit the sample **params.json** file, enter the values for RoleARN and the desired autoscaling parameters for the tables. 
-* Each table is represented with a JSON object, you can add more for each table and change the table names to match your tables.
-* The script will set up autoscaling policies for each table defined in the supplied json file.
-* Number of tables does not matter, you can place as many as you want. You can create different parameter files for different stacks and environments and run iterations through a bash script or integrate it into your CI/CD pipeline for restoring the autoscaling settings each time a new deployment is run on the DynamoDb stack.
+* FILENAME is the json file where you list your tables and autoscaling parameters.
+* Use the sample **params.json** file for reference, enter the values for RoleARN and the desired autoscaling parameters for the tables. 
+* Each table is represented with a JSON object.
+* Number of tables does not matter, you can place as many as you want. You can create different parameter files for different environments (such as dev, staging, qa) and integrate it into your CI/CD pipeline for restoring the autoscaling settings each time a new deployment is run on the Dynamodb stack or the autoscaling policies are modified.
 
 
 # restore-mappings.py
